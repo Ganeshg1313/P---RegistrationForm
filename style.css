@@ -1,0 +1,145 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --text:#000814;
+    --button-bg: #0c6cb0;
+    --button-bg-hover: #013a63;
+    --button-text : #e2eafc;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+}
+
+form{
+    box-shadow: 0px 0px 10px 1px #828282;
+    width: max-content;
+    max-height: 500px;
+    display: block;
+    margin: auto;
+    padding: 50px;
+    margin-top: 20px;
+}
+
+form h2{
+    margin-bottom: 20px;
+}
+
+form label + input{
+    display: block;
+}
+
+form input{
+    margin-bottom: 20px;
+}
+
+#submit{
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--button-bg);
+    cursor: pointer;
+    color: var(--button-text);
+}
+
+#submit:hover{
+    background-color: var(--button-bg-hover);
+}
+
+.entries{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#clearAll{
+    color: var(--button-text);
+    display: block;
+    padding: 12px;
+    margin: 14px 30px;
+    border: none;
+    background-color: var(--button-bg);
+    cursor: pointer;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+#clearAll:hover{
+    background-color: var(--button-bg-hover);
+}
+
+.items{
+    width: max-content;
+    height: max-content;
+    box-shadow: 0px 0px 10px 1px #828282;
+    padding: 20px;
+    margin: 20px;
+    position: relative;
+}
+
+.items h4{
+    margin-top: 10px;
+}
+
+.items span{
+    font-size: 18px;
+    position: absolute;
+    top: 2px;
+    right: 6px;
+    cursor: pointer;
+}
+
+.items span:hover{
+    font-weight: 800;
+}
+
+#removeUser::before,
+#removeUser::after {
+  --scale: 0;
+  --arrow-size: 5px;
+  --tooltip-color: #333;
+
+  font-size: 12px;
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+
+#removeUser::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: max-content;
+  background: var(--tooltip-color);
+}
+
+#removeUser:hover::before,
+#removeUser:hover::after {
+  --scale: 1;
+}
+
+#removeUser::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: top center;
+}
